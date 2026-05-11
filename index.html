@@ -479,21 +479,31 @@
         <div class="card weather-card">
           <div class="weather-header">
             <h2>Meteo previsto</h2>
-            <p>Uno sguardo semplice su Vazzola e Levego, aggiornato automaticamente.</p>
+            <p>Aggiornamento manuale del 11 maggio 2026 per sabato 16 maggio 2026.</p>
           </div>
           <div class="weather-grid">
-            <div class="weather-box" id="weather-vazzola">
+            <div class="weather-box">
               <h3>Vazzola</h3>
-              <p class="weather-sub">Cerimonia · 16 maggio 2026</p>
-              <p class="weather-loading">Caricamento previsione...</p>
+              <p class="weather-sub">Cerimonia · pianura trevigiana</p>
+              <ul class="weather-list">
+                <li><span class="weather-label">Tendenza</span><span class="weather-value">Più stabile e soleggiato</span></li>
+                <li><span class="weather-label">Precipitazioni</span><span class="weather-value">Assenti o poco probabili</span></li>
+                <li><span class="weather-label">Temperature</span><span class="weather-value">Massime in aumento</span></li>
+                <li><span class="weather-label">Attendibilità</span><span class="weather-value">Provvisoria</span></li>
+              </ul>
             </div>
-            <div class="weather-box" id="weather-levego">
+            <div class="weather-box">
               <h3>Levego</h3>
-              <p class="weather-sub">Ricevimento · 16 maggio 2026</p>
-              <p class="weather-loading">Caricamento previsione...</p>
+              <p class="weather-sub">Ricevimento · area bellunese</p>
+              <ul class="weather-list">
+                <li><span class="weather-label">Tendenza</span><span class="weather-value">Miglioramento probabile</span></li>
+                <li><span class="weather-label">Precipitazioni</span><span class="weather-value">In calo rispetto a venerdì</span></li>
+                <li><span class="weather-label">Temperature</span><span class="weather-value">Quadro da aggiornare</span></li>
+                <li><span class="weather-label">Attendibilità</span><span class="weather-value">Provvisoria</span></li>
+              </ul>
             </div>
           </div>
-          <p class="weather-source">Fonte dati meteo: Open-Meteo</p>
+          <p class="weather-source">Fonti usate per questo aggiornamento: ARPAV Veneto e Meteo Aeronautica Militare. Il quadro sarà aggiornato ogni mattina fino a sabato.</p>
         </div>
       </div>
     </section>
@@ -608,62 +618,7 @@
     Erik &amp; Elena · 16 maggio 2026
   </footer>
 
-  <script>
-    (function () {
-      const EVENT_DATE = "2026-05-16";
-      const places = [
-        { id: "weather-vazzola", lat: 45.8359, lon: 12.3818 },
-        { id: "weather-levego", lat: 46.1695, lon: 12.2688 }
-      ];
 
-      function renderWeather(container, daily) {
-        const idx = daily.time.indexOf(EVENT_DATE);
-        if (idx === -1) {
-          container.querySelector(".weather-loading").outerHTML =
-            '<p class="weather-error">Previsione non disponibile per questa data.</p>';
-          return;
-        }
-
-        const tempMin = Math.round(daily.temperature_2m_min[idx]);
-        const tempMax = Math.round(daily.temperature_2m_max[idx]);
-        const rainProb = Math.round(daily.precipitation_probability_max[idx]);
-        const rainMm = Number(daily.precipitation_sum[idx]).toFixed(1);
-        const windMax = Math.round(daily.wind_speed_10m_max[idx]);
-
-        container.querySelector(".weather-loading").outerHTML = `
-          <ul class="weather-list">
-            <li><span class="weather-label">Temperatura</span><span class="weather-value">${tempMin}° / ${tempMax}°</span></li>
-            <li><span class="weather-label">Probabilità pioggia</span><span class="weather-value">${rainProb}%</span></li>
-            <li><span class="weather-label">Pioggia prevista</span><span class="weather-value">${rainMm} mm</span></li>
-            <li><span class="weather-label">Vento massimo</span><span class="weather-value">${windMax} km/h</span></li>
-          </ul>
-        `;
-      }
-
-      function renderError(container) {
-        const loading = container.querySelector(".weather-loading");
-        if (loading) {
-          loading.outerHTML = '<p class="weather-error">Previsione meteo non disponibile.</p>';
-        }
-      }
-
-      async function loadWeather(place) {
-        const container = document.getElementById(place.id);
-        try {
-          const url = `https://api.open-meteo.com/v1/forecast?latitude=${place.lat}&longitude=${place.lon}&daily=temperature_2m_min,temperature_2m_max,precipitation_probability_max,precipitation_sum,wind_speed_10m_max&timezone=Europe%2FRome&start_date=${EVENT_DATE}&end_date=${EVENT_DATE}`;
-          const response = await fetch(url, { cache: "no-store" });
-          if (!response.ok) throw new Error("Bad response");
-          const data = await response.json();
-          if (!data || !data.daily || !Array.isArray(data.daily.time)) throw new Error("Missing daily data");
-          renderWeather(container, data.daily);
-        } catch (e) {
-          renderError(container);
-        }
-      }
-
-      places.forEach(loadWeather);
-    })();
-  </script>
 </body>
 </html>
 
