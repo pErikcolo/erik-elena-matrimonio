@@ -283,93 +283,64 @@
       color: #563d35;
     }
 
-    .weather-card {
-      padding: 34px 30px;
+    .weather-inline {
+      margin-top: 24px;
+      padding: 20px 20px 16px;
       background:
         linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,248,244,0.92) 100%);
-    }
-
-    .weather-header {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .weather-header p {
-      max-width: 760px;
-      margin: 0 auto;
-      color: var(--muted);
-    }
-
-    .weather-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      align-items: stretch;
-    }
-
-    .weather-box {
-      padding: 22px 22px 18px;
-      background: var(--bg-soft);
       border-radius: 20px;
       border: 1px solid rgba(125, 93, 75, 0.14);
     }
 
-    .weather-box h3 {
+    .weather-inline h3 {
       margin: 0 0 6px;
-      font-size: 1.45rem;
+      font-size: 1.18rem;
       font-weight: 600;
       color: #5f4a3e;
     }
 
-    .weather-box .weather-sub {
-      margin: 0 0 16px;
+    .weather-inline .weather-sub {
+      margin: 0 0 14px;
       color: var(--muted);
-      font-size: 0.98rem;
+      font-size: 0.96rem;
     }
 
-    .weather-list {
+    .weather-inline .weather-list {
       list-style: none;
       padding: 0;
       margin: 0;
       display: grid;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .weather-list li {
+    .weather-inline .weather-list li {
       display: flex;
       justify-content: space-between;
       gap: 14px;
-      padding: 10px 0;
+      padding: 8px 0;
       border-top: 1px solid rgba(125, 93, 75, 0.12);
     }
 
-    .weather-list li:first-child {
+    .weather-inline .weather-list li:first-child {
       border-top: none;
       padding-top: 0;
     }
 
-    .weather-label {
+    .weather-inline .weather-label {
       color: #6d5548;
     }
 
-    .weather-value {
+    .weather-inline .weather-value {
       font-weight: 600;
       color: #4b372f;
       text-align: right;
       white-space: nowrap;
     }
 
-    .weather-loading,
-    .weather-error {
-      margin: 0;
+    .weather-note {
+      margin: 10px 0 0;
       color: var(--muted);
-    }
-
-    .weather-source {
-      margin: 16px 2px 0;
-      text-align: right;
-      color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.90rem;
     }
 
     .contacts {
@@ -430,13 +401,8 @@
       }
 
       .card-body,
-      .gift-card,
-      .weather-card {
+      .gift-card {
         padding: 26px 20px;
-      }
-
-      .weather-grid {
-        grid-template-columns: 1fr;
       }
 
       .gallery-card img {
@@ -473,42 +439,6 @@
       </div>
     </section>
 
-
-    <section class="section">
-      <div class="wrap">
-        <div class="card weather-card">
-          <div class="weather-header">
-            <h2>Meteo previsto</h2>
-            <p>Aggiornamento manuale del 11 maggio 2026 per sabato 16 maggio 2026.</p>
-          </div>
-          <div class="weather-grid">
-            <div class="weather-box">
-              <h3>Vazzola</h3>
-              <p class="weather-sub">Cerimonia · pianura trevigiana</p>
-              <ul class="weather-list">
-                <li><span class="weather-label">Pioggia</span><span class="weather-value">0–20%</span></li>
-                <li><span class="weather-label">Accumulo</span><span class="weather-value">0 mm</span></li>
-                <li><span class="weather-label">Temperatura</span><span class="weather-value">min 12–14°C · max 22–25°C</span></li>
-                <li><span class="weather-label">Vento</span><span class="weather-value">5–15 km/h</span></li>
-              </ul>
-            </div>
-            <div class="weather-box">
-              <h3>Levego</h3>
-              <p class="weather-sub">Ricevimento · area bellunese</p>
-              <ul class="weather-list">
-                <li><span class="weather-label">Pioggia</span><span class="weather-value">20–40%</span></li>
-                <li><span class="weather-label">Accumulo</span><span class="weather-value">0–2 mm</span></li>
-                <li><span class="weather-label">Temperatura</span><span class="weather-value">min 10–12°C · max 18–21°C</span></li>
-                <li><span class="weather-label">Vento</span><span class="weather-value">5–15 km/h</span></li>
-              </ul>
-            </div>
-          </div>
-          <p class="weather-source">Valori inseriti manualmente come intervalli prudenziali ricavati dai bollettini ARPAV e dal Servizio Meteorologico dell’Aeronautica Militare; il resto della pagina è invariato.</p>
-        </div>
-      </div>
-    </section>
-
-
     <section class="section">
       <div class="wrap">
         <div class="card">
@@ -522,6 +452,18 @@
             <div class="place">
               <div class="label">Indirizzo</div>
               <p>Piazza Vittorio Emanuele 13<br />Vazzola (TV)</p>
+            </div>
+
+
+            <div class="weather-inline">
+              <h3>Meteo della cerimonia</h3>
+              <p class="weather-sub">Previsione per sabato 16 maggio 2026 · aggiornamento manuale del 11 maggio</p>
+              <ul class="weather-list">
+                <li><span class="weather-label">Pioggia</span><span class="weather-value">0–20%</span></li>
+                <li><span class="weather-label">Accumulo</span><span class="weather-value">0 mm</span></li>
+                <li><span class="weather-label">Temperatura</span><span class="weather-value">min 12–14°C · max 22–25°C</span></li>
+                <li><span class="weather-label">Vento</span><span class="weather-value">5–15 km/h</span></li>
+              </ul>
             </div>
 
             <div class="actions">
@@ -545,6 +487,19 @@
               <div class="label">Indirizzo</div>
               <p>Via Vena d'Oro 69<br />Levego (BL)</p>
             </div>
+
+
+            <div class="weather-inline">
+              <h3>Meteo del ricevimento</h3>
+              <p class="weather-sub">Previsione per sabato 16 maggio 2026 · aggiornamento manuale del 11 maggio</p>
+              <ul class="weather-list">
+                <li><span class="weather-label">Pioggia</span><span class="weather-value">20–40%</span></li>
+                <li><span class="weather-label">Accumulo</span><span class="weather-value">0–2 mm</span></li>
+                <li><span class="weather-label">Temperatura</span><span class="weather-value">min 10–12°C · max 18–21°C</span></li>
+                <li><span class="weather-label">Vento</span><span class="weather-value">5–15 km/h</span></li>
+              </ul>
+            </div>
+            <p class="weather-note">Valori inseriti manualmente come intervalli prudenziali ricavati dai bollettini ARPAV e dal Servizio Meteorologico dell’Aeronautica Militare.</p>
 
             <div class="actions">
               <a class="button" href="https://maps.app.goo.gl/59gkdw6Y8XgHcM8u6?g_st=ic" target="_blank" rel="noopener noreferrer">Apri la mappa</a>
@@ -621,4 +576,5 @@
 
 </body>
 </html>
+
 
