@@ -6,8 +6,8 @@
   <title>Erik & Elena</title>
   <style>
     :root {
-      --bg: #fbf7f2;
-      --bg-soft: #f4ece3;
+      --bg: #fdf2ea;
+      --bg-soft: #f8e6db;
       --card: rgba(255,255,255,0.82);
       --text: #4d4038;
       --muted: #7c6b61;
@@ -29,7 +29,7 @@
       background:
         radial-gradient(circle at top left, rgba(252, 219, 193, 0.35), transparent 30%),
         radial-gradient(circle at top right, rgba(246, 176, 176, 0.22), transparent 25%),
-        linear-gradient(180deg, #fcf8f4 0%, #f8f2ea 100%);
+        linear-gradient(180deg, #fff7f1 0%, #fceddf 100%);
       color: var(--text);
       line-height: 1.6;
     }
@@ -91,15 +91,6 @@
       text-align: center;
       color: #fff9f5;
       padding: 46px 28px 52px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      letter-spacing: 0.20em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      opacity: 0.9;
-      margin-bottom: 14px;
     }
 
     h1 {
@@ -267,6 +258,11 @@
         linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,248,244,0.90) 100%);
     }
 
+    .gift-text {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
     .gift-box {
       margin-top: 22px;
       padding: 22px 20px;
@@ -287,49 +283,48 @@
       color: #563d35;
     }
 
-
-
     .weather-card {
       padding: 34px 30px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,246,242,0.95) 100%);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,248,244,0.92) 100%);
     }
 
-    .weather-title {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    .weather-header {
+      text-align: center;
       margin-bottom: 24px;
     }
 
-    .weather-title h2 {
-      margin-bottom: 0;
+    .weather-header p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
     }
 
     .weather-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: 20px;
       align-items: stretch;
     }
 
     .weather-box {
       padding: 22px 22px 18px;
-      border-radius: 24px;
-      background: linear-gradient(180deg, rgba(255,250,247,0.98) 0%, rgba(250,236,230,0.92) 100%);
-      border: 1px solid rgba(191,115,104,0.18);
-      box-shadow: 0 12px 28px rgba(93,66,54,0.08);
+      background: var(--bg-soft);
+      border-radius: 20px;
+      border: 1px solid rgba(125, 93, 75, 0.14);
     }
 
     .weather-box h3 {
-      margin: 0 0 8px;
+      margin: 0 0 6px;
       font-size: 1.45rem;
-      color: #5c4438;
+      font-weight: 600;
+      color: #5f4a3e;
     }
 
-    .weather-date {
+    .weather-box .weather-sub {
       margin: 0 0 16px;
-      font-size: 0.98rem;
       color: var(--muted);
+      font-size: 0.98rem;
     }
 
     .weather-list {
@@ -343,7 +338,7 @@
     .weather-list li {
       display: flex;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       padding: 10px 0;
       border-top: 1px solid rgba(125, 93, 75, 0.12);
     }
@@ -371,11 +366,12 @@
     }
 
     .weather-source {
-      margin: 18px 2px 0;
-      font-size: 0.92rem;
-      color: var(--muted);
+      margin: 16px 2px 0;
       text-align: right;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
+
     .contacts {
       text-align: center;
       padding-bottom: 52px;
@@ -443,19 +439,6 @@
         grid-template-columns: 1fr;
       }
 
-      .weather-box {
-        padding: 20px 18px 16px;
-      }
-
-      .weather-list li {
-        gap: 10px;
-      }
-
-      .weather-label,
-      .weather-value {
-        font-size: 0.98rem;
-      }
-
       .gallery-card img {
         height: 320px;
       }
@@ -468,13 +451,11 @@
       <div class="hero-card">
         <img src="hero.jpeg" alt="Erik ed Elena insieme" />
         <div class="hero-content">
-          <div class="eyebrow">16 maggio 2026</div>
           <h1>Erik &amp; Elena</h1>
-          <p class="hero-subtitle">Il nostro sì, nella gioia del Signore.</p>
+          <p class="hero-subtitle">Con gioia iniziamo il nostro cammino insieme.</p>
           <div class="hero-meta">
             <span>Sabato 16 maggio 2026</span>
             <span>Ore 15.00</span>
-            <span>Vazzola</span>
           </div>
         </div>
       </div>
@@ -486,17 +467,40 @@
       <div class="wrap">
         <p>
           Siamo felici di condividere con voi il giorno del nostro matrimonio.
-          In questa pagina trovate le informazioni essenziali sulla cerimonia,
-          sul ricevimento e sul dono di nozze.
+          In questa pagina trovate le informazioni essenziali sulla cerimonia
+          e sul ricevimento.
         </p>
       </div>
     </section>
 
+
     <section class="section">
-      <div class="wrap grid">
-        <div class="card card-image">
-          <img src="church.jpeg" alt="Erik ed Elena davanti alla chiesa" />
+      <div class="wrap">
+        <div class="card weather-card">
+          <div class="weather-header">
+            <h2>Meteo previsto</h2>
+            <p>Uno sguardo semplice su Vazzola e Levego, aggiornato automaticamente.</p>
+          </div>
+          <div class="weather-grid">
+            <div class="weather-box" id="weather-vazzola">
+              <h3>Vazzola</h3>
+              <p class="weather-sub">Cerimonia · 16 maggio 2026</p>
+              <p class="weather-loading">Caricamento previsione...</p>
+            </div>
+            <div class="weather-box" id="weather-levego">
+              <h3>Levego</h3>
+              <p class="weather-sub">Ricevimento · 16 maggio 2026</p>
+              <p class="weather-loading">Caricamento previsione...</p>
+            </div>
+          </div>
+          <p class="weather-source">Fonte dati meteo: Open-Meteo</p>
         </div>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="wrap">
         <div class="card">
           <div class="card-body">
             <h2>Cerimonia</h2>
@@ -524,8 +528,7 @@
           <div class="card-body">
             <h2>Ricevimento</h2>
             <p class="lead">
-              La festa continuerà presso la Cittadella Cielo di Nuovi Orizzonti,
-              dopo le foto al termine della cerimonia.
+              La festa continuerà presso la Cittadella Cielo di Nuovi Orizzonti.
             </p>
 
             <div class="place">
@@ -549,11 +552,20 @@
       </div>
     </section>
 
+
+    <section class="section gallery-block">
+      <div class="wrap">
+        <div class="gallery-card">
+          <img src="extra.jpeg" alt="Erik ed Elena insieme" style="object-position: center 30%;" />
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="wrap">
         <div class="card gift-card">
           <h2>Per chi desidera accompagnarci</h2>
-          <p class="lead">
+          <p class="lead gift-text">
             Il regalo più bello sarà condividere con voi questo giorno.
             Per chi desidera anche accompagnarci con un dono, stiamo iniziando
             il restauro della nostra casa, primo passo della vita che cominceremo insieme.
@@ -567,6 +579,15 @@
             <p class="iban">IT46Z0344216000000091595411</p>
             <p><strong>Causale consigliata:</strong> Dono di nozze per Erik ed Elena – 16/05/2026</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section gallery-block">
+      <div class="wrap">
+        <div class="gallery-card">
+          <img src="closing.jpeg" alt="Erik ed Elena al tramonto" style="object-position: center 45%;" />
         </div>
       </div>
     </section>
@@ -586,6 +607,63 @@
   <footer>
     Erik &amp; Elena · 16 maggio 2026
   </footer>
+
+  <script>
+    (function () {
+      const EVENT_DATE = "2026-05-16";
+      const places = [
+        { id: "weather-vazzola", lat: 45.8359, lon: 12.3818 },
+        { id: "weather-levego", lat: 46.1695, lon: 12.2688 }
+      ];
+
+      function renderWeather(container, daily) {
+        const idx = daily.time.indexOf(EVENT_DATE);
+        if (idx === -1) {
+          container.querySelector(".weather-loading").outerHTML =
+            '<p class="weather-error">Previsione non disponibile per questa data.</p>';
+          return;
+        }
+
+        const tempMin = Math.round(daily.temperature_2m_min[idx]);
+        const tempMax = Math.round(daily.temperature_2m_max[idx]);
+        const rainProb = Math.round(daily.precipitation_probability_max[idx]);
+        const rainMm = Number(daily.precipitation_sum[idx]).toFixed(1);
+        const windMax = Math.round(daily.wind_speed_10m_max[idx]);
+
+        container.querySelector(".weather-loading").outerHTML = `
+          <ul class="weather-list">
+            <li><span class="weather-label">Temperatura</span><span class="weather-value">${tempMin}° / ${tempMax}°</span></li>
+            <li><span class="weather-label">Probabilità pioggia</span><span class="weather-value">${rainProb}%</span></li>
+            <li><span class="weather-label">Pioggia prevista</span><span class="weather-value">${rainMm} mm</span></li>
+            <li><span class="weather-label">Vento massimo</span><span class="weather-value">${windMax} km/h</span></li>
+          </ul>
+        `;
+      }
+
+      function renderError(container) {
+        const loading = container.querySelector(".weather-loading");
+        if (loading) {
+          loading.outerHTML = '<p class="weather-error">Previsione meteo non disponibile.</p>';
+        }
+      }
+
+      async function loadWeather(place) {
+        const container = document.getElementById(place.id);
+        try {
+          const url = `https://api.open-meteo.com/v1/forecast?latitude=${place.lat}&longitude=${place.lon}&daily=temperature_2m_min,temperature_2m_max,precipitation_probability_max,precipitation_sum,wind_speed_10m_max&timezone=Europe%2FRome&start_date=${EVENT_DATE}&end_date=${EVENT_DATE}`;
+          const response = await fetch(url, { cache: "no-store" });
+          if (!response.ok) throw new Error("Bad response");
+          const data = await response.json();
+          if (!data || !data.daily || !Array.isArray(data.daily.time)) throw new Error("Missing daily data");
+          renderWeather(container, data.daily);
+        } catch (e) {
+          renderError(container);
+        }
+      }
+
+      places.forEach(loadWeather);
+    })();
+  </script>
 </body>
 </html>
 
