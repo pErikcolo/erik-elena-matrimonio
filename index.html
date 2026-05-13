@@ -343,6 +343,54 @@
       font-size: 0.90rem;
     }
 
+    .parking-inline {
+      margin-top: 22px;
+      padding: 20px 20px 16px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,248,244,0.92) 100%);
+      border-radius: 20px;
+      border: 1px solid rgba(125, 93, 75, 0.14);
+    }
+
+    .parking-inline h3 {
+      margin: 0 0 6px;
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: #5f4a3e;
+    }
+
+    .parking-inline .parking-sub {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .parking-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .parking-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 250, 246, 0.88);
+      border: 1px solid rgba(125, 93, 75, 0.12);
+    }
+
+    .parking-card h4 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #5f4a3e;
+    }
+
+    .parking-card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
     .contacts {
       text-align: center;
       padding-bottom: 52px;
@@ -408,6 +456,10 @@
       .gallery-card img {
         height: 320px;
       }
+
+      .parking-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -459,6 +511,22 @@
               <a class="button" href="https://maps.app.goo.gl/xETr2n9aPP8MgsYB7?g_st=ic" target="_blank" rel="noopener noreferrer">Apri la mappa</a>
             </div>
 
+            <div class="parking-inline">
+              <h3>Parcheggi consigliati</h3>
+              <p class="parking-sub">Se i posti nelle immediate vicinanze della chiesa fossero esauriti, si può parcheggiare anche qui.</p>
+              <div class="parking-grid">
+                <div class="parking-card">
+                  <h4>Piscina Arca Nuoto Vazzola</h4>
+                  <p>A pochi minuti a piedi dalla chiesa</p>
+                  <a class="button" href="https://www.google.com/maps/place/Piscina+Arca+Nuoto+Vazzola/@45.8355722,12.376042,673m/data=!3m2!1e3!4b1!4m6!3m5!1s0x477941d1715961ab:0xfca7e54f91a46745!8m2!3d45.8355722!4d12.376042!16s%2Fg%2F1ptysslnt!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Apri la mappa</a>
+                </div>
+                <div class="parking-card">
+                  <h4>Casa dell’acqua Elia</h4>
+                  <p>A pochi minuti a piedi dalla chiesa</p>
+                  <a class="button" href="https://www.google.com/maps/place/Casa+dell+acqua+Elia/@45.8361586,12.3799342,673m/data=!3m2!1e3!4b1!4m6!3m5!1s0x477941cce6b6d241:0x87d098d10b5ab28!8m2!3d45.8361586!4d12.3799342!16s%2Fg%2F11v3t_9yb3!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Apri la mappa</a>
+                </div>
+              </div>
+            </div>
 
             <div class="weather-inline">
               <h3>Meteo della cerimonia</h3>
