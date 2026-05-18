@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grazie di cuore · Erik & Elena</title>
+  <style>
+    :root {
+      --bg: #fdf2ea;
+      --bg-soft: #f8e6db;
+      --card: rgba(255,255,255,0.82);
+      --text: #4d4038;
+      --muted: #7c6b61;
+      --accent: #c97f73;
+      --accent-dark: #a55b50;
+      --line: rgba(125, 93, 75, 0.16);
+      --shadow: 0 20px 50px rgba(79, 53, 40, 0.10);
+      --radius: 24px;
+      --max: 1060px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, rgba(252, 219, 193, 0.35), transparent 30%),
+        radial-gradient(circle at top right, rgba(246, 176, 176, 0.22), transparent 25%),
+        linear-gradient(180deg, #fff7f1 0%, #fceddf 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 34px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 28px 0 26px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      min-height: 560px;
+      box-shadow: var(--shadow);
+      background: #d7d0c9;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(40,25,18,0.08) 0%, rgba(40,25,18,0.16) 40%, rgba(40,25,18,0.44) 100%),
+        linear-gradient(90deg, rgba(54,34,25,0.18) 0%, rgba(54,34,25,0.02) 45%, rgba(54,34,25,0.12) 100%);
+    }
+
+    .hero-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transform: scale(1.02);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      color: #fff9f5;
+      padding: 46px 28px 52px;
+    }
+
+    h1 {
+      margin: 0;
+      font-weight: 500;
+      font-size: clamp(3rem, 8vw, 5.8rem);
+      line-height: 0.95;
+      text-shadow: 0 6px 24px rgba(0,0,0,0.22);
+    }
+
+    .hero-subtitle {
+      margin: 18px auto 0;
+      max-width: 760px;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255,248,243,0.96);
+    }
+
+    .hero-meta {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 14px;
+      font-size: 0.96rem;
+      color: rgba(255,246,239,0.95);
+    }
+
+    .hero-meta span {
+      padding: 10px 14px;
+      border: 1px solid rgba(255,255,255,0.30);
+      border-radius: 999px;
+      backdrop-filter: blur(4px);
+      background: rgba(255,255,255,0.10);
+    }
+
+    .section {
+      padding: 30px 0;
+    }
+
+    .intro {
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .intro p {
+      max-width: 820px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-body {
+      padding: 38px 34px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 500;
+      color: #564338;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--text);
+      margin: 0 0 14px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .text-block {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .highlight-box {
+      margin-top: 26px;
+      padding: 28px 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,248,244,0.92) 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(125, 93, 75, 0.14);
+    }
+
+    .upload-box {
+      margin-top: 26px;
+      padding: 30px 26px;
+      background: var(--bg-soft);
+      border-radius: 22px;
+      border: 1px solid rgba(125, 93, 75, 0.14);
+      text-align: center;
+    }
+
+    .upload-box h2 {
+      margin-bottom: 12px;
+    }
+
+    .upload-box p {
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #d38b7d 0%, #bf7368 100%);
+      color: #fffaf8;
+      font-size: 0.96rem;
+      box-shadow: 0 10px 24px rgba(191,115,104,0.22);
+      border: none;
+    }
+
+    .button:hover {
+      text-decoration: none;
+      filter: brightness(1.03);
+    }
+
+    .note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .gallery-block {
+      padding-top: 8px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: clamp(280px, 45vw, 470px);
+      object-fit: cover;
+      object-position: center 42%;
+    }
+
+    .closing {
+      text-align: center;
+      padding-bottom: 52px;
+    }
+
+    .closing-card {
+      padding: 30px 22px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+      padding: 4px 0 34px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-card,
+      .hero-content {
+        min-height: 500px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(var(--max), calc(100% - 20px));
+      }
+
+      .hero {
+        padding-top: 12px;
+      }
+
+      .hero-card,
+      .hero-content {
+        min-height: 470px;
+      }
+
+      .hero-content {
+        padding: 34px 18px 34px;
+      }
+
+      .hero-meta {
+        gap: 8px;
+      }
+
+      .hero-meta span {
+        width: 100%;
+      }
+
+      .card-body {
+        padding: 26px 20px;
+      }
+
+      .highlight-box,
+      .upload-box {
+        padding: 24px 18px;
+      }
+
+      .gallery-card img {
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <img src="../hero.jpeg" alt="Erik ed Elena insieme" />
+        <div class="hero-content">
+          <h1>Ci siamo sposati</h1>
+          <p class="hero-subtitle">
+            Grazie per aver condiviso con noi la gioia del nostro matrimonio.
+          </p>
+          <div class="hero-meta">
+            <span>Erik &amp; Elena</span>
+            <span>16 maggio 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section intro">
+      <div class="wrap">
+        <p>
+          È stata una giornata piena di emozione, affetto e gratitudine.
+          Avervi accanto in un momento così importante è stato per noi un dono prezioso.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="card">
+          <div class="card-body">
+            <h2>Grazie di cuore</h2>
+
+            <p class="lead text-block">
+              Desideriamo ringraziarvi per la vostra presenza, per le parole,
+              gli abbracci, i sorrisi e per tutti i gesti di affetto che ci avete
+              donato. Il nostro matrimonio è stato ancora più bello perché lo
+              abbiamo potuto vivere insieme a voi.
+            </p>
+
+            <p class="lead text-block">
+              Porteremo con noi tanti momenti di questa giornata: l’arrivo in chiesa,
+              gli incontri, la festa, la musica, le risate e tutti quei piccoli istanti
+              che hanno reso speciale il nostro sì.
+            </p>
+
+            <div class="highlight-box">
+              <h2>Aiutateci a raccogliere i ricordi</h2>
+
+              <p class="lead text-block">
+                Durante il ricevimento non avevamo un fotografo ufficiale per seguire
+                ogni momento della festa. Sappiamo però che molti di voi hanno scattato
+                foto e video: ci farebbe davvero piacere raccoglierli, per poter rivivere
+                il matrimonio anche attraverso il vostro sguardo.
+              </p>
+            </div>
+
+            <div class="upload-box">
+              <h2>Carica qui foto e video</h2>
+
+              <p class="lead">
+                Se avete scattato qualche foto o video durante la giornata,
+                potete caricarli dal pulsante qui sotto.
+              </p>
+
+              <p class="muted">
+                I file arriveranno direttamente a noi. Chi carica non potrà modificare
+                o cancellare le foto caricate dagli altri invitati.
+              </p>
+
+              <div class="actions">
+                <a class="button" href="https://www.dropbox.com/request/j288p212mwksty3cw5gi" target="_blank" rel="noopener noreferrer">
+                  Carica foto e video
+                </a>
+              </div>
+
+              <p class="note">
+                Se avete molte foto, potete caricarle anche in più volte.
+              </p>
+            </div>
+
+            <div class="actions">
+              <a class="button" href="../index.html">Torna alla pagina del matrimonio</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-block">
+      <div class="wrap">
+        <div class="gallery-card">
+          <img src="../closing.jpeg" alt="Erik ed Elena al tramonto" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section closing">
+      <div class="wrap">
+        <div class="card closing-card">
+          <h2>Grazie ancora</h2>
+          <p class="muted">
+            Con affetto,<br />
+            Erik ed Elena
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Erik &amp; Elena · 16 maggio 2026
+  </footer>
+</body>
+</html>
